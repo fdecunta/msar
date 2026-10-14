@@ -2,7 +2,7 @@
 .Dt MSMAN 1
 .Os
 .Sh NAME
-.Nm msman
+.Nm msar
 .Nd archive files into a date-based directory tree
 .Sh SYNOPSIS
 .Nm
@@ -82,23 +82,23 @@ Create the archive directory:
 .Pp
 Archive a file:
 .Pp
-.Dl $ msman -a report.pdf
+.Dl $ msar -a report.pdf
 .Pp
 List archived files:
 .Pp
-.Dl $ msman -l
+.Dl $ msar -l
 .Pp
 Archive a file, then list the archive:
 .Pp
-.Dl $ msman -a report.pdf -l
+.Dl $ msar -a report.pdf -l
 .Sh DIAGNOSTICS
 .Bl -diag
-.It msman: missing directory: archive/
+.It msar: missing directory: archive/
 The archive directory does not exist in the current working directory.
-.It msman: Ns Ar file Ns : No such file
+.It msar: Ns Ar file Ns : No such file
 .Ar file
 does not exist or is not a regular file.
-.It msman: unexpected argument: Ar arg
+.It msar: unexpected argument: Ar arg
 Non-option arguments were supplied.
 .El
 .Sh SEE ALSO

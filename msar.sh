@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROG="msman"
+PROG="msar"
 ARCHIVE="archive"
 
 usage() {

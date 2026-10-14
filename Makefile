@@ -1,11 +1,11 @@
 BINDIR = /usr/local/bin
 MANDIR = /usr/local/man/man1
 
-PROG = msman
-MAN  = msman.1
+PROG = msar
+MAN  = msar.1
 
-$(PROG): msman.sh
-	cp msman.sh $(PROG)
+$(PROG): msar.sh
+	cp msar.sh $(PROG)
 	chmod +x $(PROG)
 
 install: $(PROG)

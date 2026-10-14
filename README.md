@@ -1,4 +1,4 @@
-# msman
+# msar
 
 Archives files into a date-based directory tree.
 
@@ -13,7 +13,7 @@ archive/
 ## Usage
 
 ```
-msman: [-a FILE] [-l]
+msar: [-a FILE] [-l]
   -a  archive FILE
   -l  list archived files
 ```
@@ -27,7 +27,7 @@ Install with:
 doas make install
 ```
 
-`msman` expects a directory named `archive` in the current working directory.
+`msar` expects a directory named `archive` in the current working directory.
 Create it once:
 
 ```sh
@@ -38,10 +38,10 @@ mkdir archive
 
 ```sh
 # Archive a file (copied to archive/YYYY/MM/DD/ using today's date)
-./msman.sh -a foo_etal_v4.pdf
+./msar.sh -a foo_etal_v4.pdf
 
 # List everything in the archive, useful for pipes
-./msman.sh -l
+./msar.sh -l
 ```
 
 ## Notes
