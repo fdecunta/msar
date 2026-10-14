@@ -21,6 +21,12 @@ msman: [-a FILE] [-l]
 
 ## Setup
 
+Install with:
+
+```sh
+doas make install
+```
+
 `msman` expects a directory named `archive` in the current working directory.
 Create it once:
 
