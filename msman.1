@@ -1,0 +1,112 @@
+.Dd October 14, 2026
+.Dt MSMAN 1
+.Os
+.Sh NAME
+.Nm msman
+.Nd archive files into a date-based directory tree
+.Sh SYNOPSIS
+.Nm
+.Op Fl a Ar file
+.Op Fl l
+.Op Fl h
+.Sh DESCRIPTION
+The
+.Nm
+utility copies files into an archive directory, organised by the date on
+which they were archived.
+.Pp
+The archive is the directory named
+.Pa archive
+in the current working directory.
+It must already exist;
+.Nm
+will not create it.
+.Pp
+Within the archive, each file is stored under a subdirectory of the form
+.Pa YYYY/MM/DD ,
+based on the current local date.
+Intermediate directories are created as needed.
+For example, a file named
+.Pa notes.txt
+archived on 14 October 2026 is stored as
+.Pa archive/2026/10/14/notes.txt .
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl a Ar file
+Archive
+.Ar file .
+The file is copied, not moved, so the original is left in place.
+Only regular files are accepted.
+If a file of the same name already exists in that day's directory, the
+user is prompted before it is overwritten.
+.It Fl l
+List all archived files, one path per line, in sorted order.
+.It Fl h
+Print a usage message to standard error.
+.El
+.Pp
+Options are processed in the order given, so
+.Fl a
+and
+.Fl l
+may be combined in one invocation.
+If run without arguments,
+.Nm
+prints a usage message and exits.
+.Sh FILES
+.Bl -tag -width Ds
+.It Pa archive/
+Archive directory, relative to the current working directory.
+.It Pa archive/YYYY/MM/DD/
+Directory holding the files archived on the given date.
+.El
+.Sh EXIT STATUS
+.Ex -std
+Specifically:
+.Pp
+.Bl -tag -width Ds -compact
+.It 0
+Success.
+.It 1
+The archive directory is missing, the file to archive does not exist or is
+not a regular file, a directory or file could not be created, or no
+arguments were given.
+.It 2
+An unknown option or an unexpected argument was given.
+.El
+.Sh EXAMPLES
+Create the archive directory:
+.Pp
+.Dl $ mkdir archive
+.Pp
+Archive a file:
+.Pp
+.Dl $ msman -a report.pdf
+.Pp
+List archived files:
+.Pp
+.Dl $ msman -l
+.Pp
+Archive a file, then list the archive:
+.Pp
+.Dl $ msman -a report.pdf -l
+.Sh DIAGNOSTICS
+.Bl -diag
+.It msman: missing directory: archive/
+The archive directory does not exist in the current working directory.
+.It msman: Ns Ar file Ns : No such file
+.Ar file
+does not exist or is not a regular file.
+.It msman: unexpected argument: Ar arg
+Non-option arguments were supplied.
+.El
+.Sh SEE ALSO
+.Xr cp 1 ,
+.Xr find 1 ,
+.Xr getopts 1
+.Sh CAVEATS
+The archive location is fixed and relative to the current directory, so
+.Nm
+should always be run from the directory that contains
+.Pa archive/ .

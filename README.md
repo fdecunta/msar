@@ -7,7 +7,7 @@ archive/
 └── 2026/
     └── 10/
         └── 14/
-            └── notes.txt
+            └── ms_v2.docx
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ mkdir archive
 
 ```sh
 # Archive a file (copied to archive/YYYY/MM/DD/ using today's date)
-./msman.sh -a report.pdf
+./msman.sh -a foo_etal_v4.pdf
 
 # List everything in the archive
 ./msman.sh -l
@@ -47,5 +47,3 @@ mkdir archive
 - If a file with the same name already exists for that day, you are asked
   before it is overwritten.
 - Only regular files can be archived, not directories.
-- Requires only a POSIX `sh` and standard utilities (`cp`, `find`, `sort`, `date`, `mkdir`).
-# msman
