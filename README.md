@@ -1,6 +1,6 @@
 # msman
 
-A tiny shell script that archives files into a date-based directory tree.
+Archives files into a date-based directory tree.
 
 ```
 archive/
@@ -13,14 +13,11 @@ archive/
 ## Usage
 
 ```
-msman [-a FILE] [-l] [-h]
+msman: [-a FILE] [-l]
+  -a  archive FILE
+  -l  list archived files
 ```
 
-| Option    | Description                 |
-|-----------|-----------------------------|
-| `-a FILE` | Archive `FILE`              |
-| `-l`      | List archived files         |
-| `-h`      | Show usage                  |
 
 ## Setup
 
@@ -37,7 +34,7 @@ mkdir archive
 # Archive a file (copied to archive/YYYY/MM/DD/ using today's date)
 ./msman.sh -a foo_etal_v4.pdf
 
-# List everything in the archive
+# List everything in the archive, useful for pipes
 ./msman.sh -l
 ```
 
