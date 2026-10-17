@@ -39,7 +39,7 @@ add_file() {
 
 list_archive() {
 	assert_archive
-	find "${ARCHIVE}" -mindepth 4 | sort
+	find "${ARCHIVE}" -type f | sort
 }
 
 if [ $# -eq 0 ]; then
